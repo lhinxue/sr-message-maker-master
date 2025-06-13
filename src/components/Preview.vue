@@ -87,6 +87,32 @@ import MessageItem from './Message/MessageItem.vue'
 const boxRef = ref<InstanceType<typeof MessageBox>>()
 const endOfMessageList = ref()
 
+// Preload all mp3 files from src/assets/sound
+const sounds = import.meta.glob('/src/assets/sound/*.mp3', { eager: true, as: 'url' })
+
+const audioCache = new Map<string, HTMLAudioElement>()
+
+function playSound(key: string): void {
+  const path = `/src/assets/sound/${key}.mp3`
+  const src = sounds[path]
+
+  if (!src) {
+    console.warn(`Sound "${key}" not found at ${path}`)
+    return
+  }
+
+  let audio = audioCache.get(key)
+  if (!audio) {
+    audio = new Audio(src)
+    audioCache.set(key, audio)
+  }
+
+  audio.currentTime = 0
+  audio.play().catch((err) => {
+    console.error(`Failed to play sound "${key}":`, err)
+  })
+}
+
 // 要显示的数据
 const dataList = computed(() => {
   if (!currentMessage.value) return []
@@ -132,6 +158,9 @@ emitter.on('autoplay', () => {
   reset()
   autoPlay.flag = true
 
+  window.setTimeout(() => {
+    playSound('message-start')
+  }, 500)
   timer = window.setTimeout(() => {
     nextTick(() => {
       next(0, true)
@@ -224,6 +253,7 @@ const next = (i: number, loading: boolean) => {
 
       clearTimeout(timer)
       timer = window.setTimeout(() => {
+        playSound('message-send')
         next(i, false)
       }, time)
     } else {
@@ -339,7 +369,7 @@ onUnmounted(() => {
     position fixed
     top 0
     width 100%
-    height 105%
+    height 107%
     background-color green
     transition 0.2s
 
@@ -372,13 +402,13 @@ onUnmounted(() => {
 
 .message-preview
   position absolute
-  top 10%
+  top 13%
   left 900px
   z-index 10
   width 1400px
   height 80%
   message()
-  scale 1.15
+  scale 1.25
 
   :deep(*)
     cursor auto !important
