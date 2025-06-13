@@ -34,7 +34,7 @@
             自定义角色
           </div>
         </div>
-        <input/>
+        <input />
         <div class="list">
           <div
             class="character-list"
@@ -42,21 +42,21 @@
             ref="game"
           >
             <CharacterCard
-              class="character"
-              :custom="!userData.card"
+              class="character game-char"
+              :custom="false"
               :name="setting.name"
-              :avatar="userData.card || userData.avatar"
-              :level="!userData.card ? 5 : undefined"
+              :avatar="userData.avatar"
+              :level="5"
               title="开拓者"
               @click="handlecharacterClick('开拓者', '')"
             />
             <CharacterCard
               v-for="(item, key) in character.game"
               :key="`character-${key}`"
-              class="character"
+              class="character game-char"
               :name="key as string"
               :info="item.info"
-              :avatar="item.card"
+              :avatar="item.avatar"
               @click="handlecharacterClick(String(key), item.name)"
             />
           </div>
@@ -273,7 +273,7 @@ const handleDelClick = (key: string, name: string) => {
 <style lang="stylus" scoped>
 @import '../../Common/Window.styl'
 
-$character-item-width = 387px
+$character-item-width = 200px
 
 .character-select
   position absolute
@@ -316,7 +316,9 @@ $character-item-width = 387px
 
     input
       flex 1
+      box-sizing border-box
       padding 0 50px 0 90px
+      width 100%
       height 100px
       outline none
       border none
@@ -325,8 +327,6 @@ $character-item-width = 387px
       text-align center
       font-size 48px
       transition box-shadow 0.2s
-      width 100%
-      box-sizing border-box
 
       &:focus
       &:hover
@@ -358,7 +358,7 @@ $character-item-width = 387px
           box-sizing border-box
           margin 10px
           width $character-item-width
-          height 645px
+          height 250px
           border 5px solid #afafaf
           color #afafaf
           cursor pointer

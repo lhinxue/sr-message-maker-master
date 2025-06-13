@@ -47,7 +47,7 @@
             class="icon"
           />
         </div>
-        <div
+        <!-- <div
           class="info"
           title="查看更新日志"
           @click="popupManager.open('log')"
@@ -56,7 +56,7 @@
             <span class="label">最后更新</span>
             <span class="value">{{ Log[0]?.time || '-' }}</span>
           </div>
-        </div>
+        </div> -->
       </div>
     </Window>
   </Popup>

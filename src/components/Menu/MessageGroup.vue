@@ -329,7 +329,7 @@ const avatarUrl = computed(() => {
         background rgba(255, 255, 255, 0.1)
         opacity 0
         cursor pointer
-        backdrop-filter blur(10px)
+        // backdrop-filter blur(10px)
 
         &:hover
           opacity 1

@@ -9,7 +9,7 @@
     <Header />
     <Index />
     <User />
-    <Link />
+    <!-- <Link /> -->
     <Preview />
   </Main>
 </template>

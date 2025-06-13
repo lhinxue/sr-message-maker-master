@@ -27,6 +27,7 @@
           @clone="onMoveStart"
           @end="onMoveEnd"
           @change="onChange"
+        
         >
           <template #item="{ element, index }: { element: Message; index: number }">
             <MessageItem

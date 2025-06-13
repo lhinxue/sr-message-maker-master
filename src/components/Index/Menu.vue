@@ -26,7 +26,7 @@
             >
               <Icon name="message" />
             </IconBtn>
-            <span>发送</span>
+            <span>新建</span>
           </div>
           <div
             class="btn"

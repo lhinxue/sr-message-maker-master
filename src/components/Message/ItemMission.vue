@@ -214,15 +214,13 @@ const updateText = (text: string) => {
       align-items center
       width 60px
       height 60px
-      opacity 0
+      opacity .6
       cursor pointer
       transform translateY(-50%)
 
       :deep(path)
         fill var(--message-item-name-color)
 
-      &:hover
-        opacity 1
 
 .mission-0
   color #b886ed

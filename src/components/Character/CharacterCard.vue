@@ -17,12 +17,12 @@
       </div>
       <div class="name">{{ name }}</div>
     </div>
-    <div
+    <!-- <div
       class="info"
       :title="info"
     >
       {{ info || '' }}
-    </div>
+    </div> -->
     <slot></slot>
   </div>
 </template>
@@ -40,25 +40,25 @@ defineProps<{
 </script>
 
 <style lang="stylus" scoped>
-.gold-border
-  border-bottom 14px solid #ffd070 !important
-  background linear-gradient(to bottom, #373737, #7b715b) !important
+// .gold-border
+//   border-bottom 14px solid #ffd070 !important
+//   background linear-gradient(to bottom, #373737, #7b715b) !important
 
 .custom-user
   .card
     overflow hidden
     margin-bottom 10px
-    height 635px !important
+    width 200px
+    height 250px
     border-bottom 14px solid #c3c3c3
     border-top-right-radius 50px
-    background linear-gradient(to bottom, #373737, #615a6d)
+    // background linear-gradient(to bottom, #373737, #615a6d)
 
     .avatar
       overflow hidden
       margin auto
-      margin-top 65px
-      width 340px
-      height 340px
+      width 200px
+      height 200px
 
       img
         width 100% !important
@@ -75,8 +75,10 @@ defineProps<{
 
 .character
   position relative
+  overflow hidden
   margin 10px
-  height 700px
+  width 200px
+  height 250px
   cursor pointer
 
   &:hover
@@ -85,12 +87,16 @@ defineProps<{
 
   .card
     position relative
-    height 650px
+    display flex
+    flex-direction column
 
     .avatar
+      width 200px
+      height 200px
+      overflow hidden
+
       img
         width 100%
-        height 700px - 50px
         pointer-events none
         user-select none
 
@@ -103,12 +109,9 @@ defineProps<{
     white-space nowrap
 
   .name
-    position absolute
-    bottom 80px
-    color rgba(255, 255, 255, 0.85)
     text-align center
     font-weight bold
-    font-size 40px
+    font-size 30px
 
   .info
     margin-bottom 10px

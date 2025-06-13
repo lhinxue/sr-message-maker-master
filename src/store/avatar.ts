@@ -16,8 +16,7 @@ const userData = computed(() => {
   if (typeof key === 'string') {
     if (avatar.game[key]) {
       return {
-        avatar: avatar.game[key].avatar,
-        card: avatar.game[key].card
+        avatar: avatar.game[key].avatar
       }
     }
     if (character.game[key]) {
@@ -42,8 +41,7 @@ const userData = computed(() => {
     }
   }
   return {
-    avatar: avatar.game[DEFAULT_AVATAR].avatar,
-    card: avatar.game[DEFAULT_AVATAR].card
+    avatar: avatar.game[DEFAULT_AVATAR].avatar
   }
 })
 

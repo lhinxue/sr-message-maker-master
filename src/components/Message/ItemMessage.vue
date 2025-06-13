@@ -175,12 +175,16 @@ $del-pos = -100px
 
     .name
       position relative
+      display flex
+      flex-direction row
+      align-items center
       max-width calc(100% - var(--message-item-avatar-width) - var(--message-item-avatar-margin) - 160px)
       width -moz-fit-content
       width fit-content
       color var(--message-item-name-color)
       font-size 45px
       cursor pointer
+      gap 30px
 
       span
         display block
@@ -189,9 +193,6 @@ $del-pos = -100px
         white-space nowrap
 
       .del
-        position absolute
-        top 0
-        right $del-pos
         display flex
         justify-content center
         align-items center
@@ -260,6 +261,9 @@ $del-pos = -100px
 
   .message-item
     align-items flex-end
+
+    .name
+      flex-direction row-reverse
 
     .text-box
       .text

@@ -54,7 +54,7 @@ interface MessageListItem {
 interface Character {
   name: string
   avatar: string
-  card: string
+  card?: string
   info?: string
 }
 

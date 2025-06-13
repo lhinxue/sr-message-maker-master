@@ -50,7 +50,7 @@ const close = () => {
   emits('close', props.name)
 }
 
-const defaultFont = "* { font-family: 'Noto Sans SC'; }"
+const defaultFont = "* { font-family: 'Honkai', 'Star Rail'; }"
 
 const getFontName = () => getComputedStyle(document.body).fontFamily.replace(/\"/g, '')
 const font = ref(getFontName())

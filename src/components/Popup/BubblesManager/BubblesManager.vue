@@ -18,7 +18,7 @@
       </div>
       <template #outside>
         <div class="other-setting">
-          <div
+          <!-- <div
             class="setting-btn"
             title="更新记录"
             @click.stop="popupManager.open('log')"
@@ -28,7 +28,7 @@
               width="50"
               height="50"
             />
-          </div>
+          </div> -->
           <div
             class="setting-btn"
             title="字体设置"

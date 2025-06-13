@@ -218,7 +218,7 @@ const next = (i: number, loading: boolean) => {
     scrollToBottom(boxRef.value?.listDom)
 
     if (loading) {
-      const time = Math.min(Math.max(currentMessage.value.list[i].text.length * 50, 1000), 3000)
+      const time = currentMessage.value.list[i].text.length * 100
 
       clearTimeout(timer)
       timer = window.setTimeout(() => {
