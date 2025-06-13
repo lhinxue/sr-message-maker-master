@@ -1,5 +1,5 @@
 <h1 align="center">星穹铁道短信编辑器</h1>
-<h3 align="center">崩坏:星穹铁道短信生成网站</h3>
+<h3 align="center">代码来源https://github.com/blacktunes/sr-message-maker</h3>
 
 ![预览图](public/preview.webp)
 
