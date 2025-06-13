@@ -5,7 +5,6 @@
   >
     <transition
       :name="!preview ? (!state.drag ? 'fade-in' : undefined) : 'avatar'"
-      appear
     >
       <div
         class="avatar"
@@ -20,7 +19,6 @@
     <div class="message-item">
       <transition
         :name="!preview ? (!state.drag ? 'fade-in' : undefined) : 'message'"
-        appear
       >
         <div class="name">
           <span @click.stop="preview ? undefined : emit('config')">
@@ -41,15 +39,12 @@
       </transition>
       <transition
         :name="!preview ? (!state.drag ? 'fade-in' : undefined) : 'message'"
-        appear
       >
         <div
           v-if="autoPlay.flag && item.loading"
           class="loading"
         >
-          <div></div>
-          <div></div>
-          <div></div>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><circle fill="#565656" stroke="#565656" stroke-width="15" r="15" cx="40" cy="100"><animate attributeName="opacity" calcMode="spline" dur="2" values="1;0;1;" keySplines=".5 0 .5 1;.5 0 .5 1" repeatCount="indefinite" begin="-.4"></animate></circle><circle fill="#565656" stroke="#565656" stroke-width="15" r="15" cx="100" cy="100"><animate attributeName="opacity" calcMode="spline" dur="2" values="1;0;1;" keySplines=".5 0 .5 1;.5 0 .5 1" repeatCount="indefinite" begin="-.2"></animate></circle><circle fill="#565656" stroke="#565656" stroke-width="15" r="15" cx="160" cy="100"><animate attributeName="opacity" calcMode="spline" dur="2" values="1;0;1;" keySplines=".5 0 .5 1;.5 0 .5 1" repeatCount="indefinite" begin="0"></animate></circle></svg>
         </div>
         <div
           class="img"
@@ -137,6 +132,11 @@ const updateMessage = (e: Event) => {
 @import '../../assets/data/bubbles/style.styl'
 
 $del-pos = -100px
+@keyframes fade-in
+  0%
+    opacity 0
+  100%
+    opacity 1
 
 .message
   display flex
@@ -153,6 +153,7 @@ $del-pos = -100px
     width var(--message-item-avatar-width)
     height var(--message-item-avatar-width)
     cursor pointer
+    animation fade-in 0.5s ease-in-out
 
     img
       width 100%
@@ -162,7 +163,8 @@ $del-pos = -100px
       pointer-events none
       user-select none
       user-select none
-      object-fit contain
+      object-fit cover
+      object-position top
       clip-path var(--avatar-image-clip-path-bilibiliwiki-only)
 
   .message-item
@@ -185,6 +187,7 @@ $del-pos = -100px
       font-size 45px
       cursor pointer
       gap 30px
+      animation fade-in 0.5s ease-in-out
 
       span
         display block
@@ -210,29 +213,15 @@ $del-pos = -100px
     .loading
       display inline-flex
       box-sizing border-box
-      padding 35px 0 35px 10px
-      height 145px
-
-      div
-        margin 0 5px
-        width 20px
-        height 20px
-        border-radius 50%
-        background #222
-        opacity 0
-        animation circle 2s linear infinite
-
-      & div:nth-child(2)
-        animation-delay 0.2s
-
-      & div:nth-child(3)
-        animation-delay 0.4s
+      width 100px
+      animation fade-in 0.5s ease-in-out
 
     .img
       margin 40px 40px 0
       min-width var(--message-item-img-width)
       max-width 600px
       user-select none
+      animation fade-in 0.5s ease-in-out
 
       img
         width 100%
@@ -240,6 +229,7 @@ $del-pos = -100px
 
     .text-box
       box()
+      animation fade-in 0.5s ease-in-out
 
       .bg-icon
         position absolute

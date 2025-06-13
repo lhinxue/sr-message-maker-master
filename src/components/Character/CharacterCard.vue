@@ -67,7 +67,8 @@ defineProps<{
         background var(--avatar-background)
         pointer-events none
         user-select none
-        object-fit contain
+        object-fit cover
+        object-position top
         clip-path var(--avatar-image-clip-path-bilibiliwiki-only)
 
   .name

@@ -43,6 +43,7 @@
           :index="0"
           preview
         />
+        <div ref="endOfMessageList"></div>
         <template #bottom>
           <Transition
             name="option"
@@ -84,6 +85,7 @@ import MessageBox from './Message/MessageBox.vue'
 import MessageItem from './Message/MessageItem.vue'
 
 const boxRef = ref<InstanceType<typeof MessageBox>>()
+const endOfMessageList = ref()
 
 // 要显示的数据
 const dataList = computed(() => {
@@ -215,7 +217,7 @@ const next = (i: number, loading: boolean) => {
   nextTick(() => {
     if (!currentMessage.value) return
 
-    scrollToBottom(boxRef.value?.listDom)
+    endOfMessageList.value?.scrollIntoView({ behavior: 'smooth' })
 
     if (loading) {
       const time = currentMessage.value.list[i].text.length * 100
@@ -334,14 +336,12 @@ onUnmounted(() => {
   -webkit-backdrop-filter blur(20px)
 
   .green
-    position absolute
-    top 50%
-    left 50%
-    width 95%
-    height 95%
+    position fixed
+    top 0
+    width 100%
+    height 105%
     background-color green
     transition 0.2s
-    transform translate(-50%, -50%)
 
   .green-btn
     position absolute
@@ -378,6 +378,7 @@ onUnmounted(() => {
   width 1400px
   height 80%
   message()
+  scale 1.15
 
   :deep(*)
     cursor auto !important

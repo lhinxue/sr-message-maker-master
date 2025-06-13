@@ -276,7 +276,8 @@ $border-width = 4px
       background #c3b7a9
       pointer-events none
       user-select none
-      object-fit contain
+      object-fit cover
+      object-position top
 
     .del
       position absolute
