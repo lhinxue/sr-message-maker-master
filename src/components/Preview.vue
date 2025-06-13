@@ -369,7 +369,7 @@ onUnmounted(() => {
     position fixed
     top 0
     width 100%
-    height 107%
+    height 105%
     background-color green
     transition 0.2s
 
@@ -402,13 +402,13 @@ onUnmounted(() => {
 
 .message-preview
   position absolute
-  top 13%
+  top 12%
   left 900px
   z-index 10
   width 1400px
   height 80%
   message()
-  scale 1.25
+  scale 1.2
 
   :deep(*)
     cursor auto !important
