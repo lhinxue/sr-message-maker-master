@@ -249,7 +249,7 @@ const next = (i: number, loading: boolean) => {
     endOfMessageList.value?.scrollIntoView({ behavior: 'smooth' })
 
     if (loading) {
-      const time = currentMessage.value.list[i].text.length * 100
+      const time = Math.max(currentMessage.value.list[i].text.length * 100, 1000)
 
       clearTimeout(timer)
       timer = window.setTimeout(() => {
